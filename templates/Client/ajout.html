@@ -1,0 +1,90 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-7 m-auto">
+      <h3 class="text-center">AJOUTER UN CLIENT</h1><br>
+        <form action="" method="POST">
+          <!-- {% csrf_token %}
+        {{form}} -->
+          <!-- <input class="btn btn-success" type="submit" value="Enregistrer">
+        <a href="{% url 'index' %}" class="btn btn-danger" type="disabled" role="button">Annuler</a> -->
+
+          <!-- <form action="" method="POST"> -->
+          <input type="hidden" name="csrfmiddlewaretoken"
+            value="C93W5XzYEIr4LDWjAkZ1sUSDohkMOte9VflebIZgjBP4FpJfXFRAtyeuCyiLsHIr">
+
+          <div class="row mb-3">
+            <div class="col-md-6">
+              <!-- <label for="id_nom">Nom&nbsp;:</label> -->
+              <input type="text" autocomplete="off" placeholder="Nom..." class="form-control" name="nom" maxlength="25"
+                required="" id="id_nom">
+            </div>
+            <div class="col-md-6">
+              <!-- <label for="id_prenom">Prenom&nbsp;:</label> -->
+              <input type="text" autocomplete="off" name="prenom" placeholder="Prénom..." class="form-control"
+                maxlength="50" required="" id="id_prenom">
+            </div>
+          </div>
+          <div class="row mb-3">
+            <div class="col-md-6">
+              <!-- <label for="id_email">Email&nbsp;:</label> -->
+              <input type="email" autocomplete="off" name="email" placeholder="Adresse email..." class="form-control"
+                maxlength="25" required="" id="id_email">
+            </div>
+            <div class="col-md-6">
+              <!-- <label for="id_telephone">Téléphone&nbsp;:</label> -->
+              <input type="text" autocomplete="off" placeholder="Téléphone..." name="telephone" class="form-control"
+                maxlength="25" required="" id="id_telephone">
+            </div>
+          </div>
+          <div class="row mb-3">
+            <div class="col-md-5">
+              <!-- <label for="id_profession">Profession&nbsp;:</label> -->
+              <input type="text" autocomplete="off" name="profession" placeholder="Profession..." class="form-control"
+                maxlength="25" required="" id="id_profession">
+            </div>
+            <div class="col-md-7">
+              <!-- <label for="id_addresse">Adresse&nbsp;:</label> -->
+              <input type="text" name="addresse" autocomplete="off" placeholder="Adresse..." class="form-control"
+                maxlength="25" required="" id="id_addresse">
+            </div>
+
+          </div>
+          <div class="row mb-3">
+            <div class="col-md-6">
+              <!-- <label for="id_num_CIN">Num CIN&nbsp;:</label> -->
+              <input type="text" autocomplete="off" name="num_CIN" placeholder="CIN..." class="form-control"
+                maxlength="25" required="" id="id_num_CIN">
+            </div>
+            <div class="col-md-6">
+              <!-- <label for="id_sexe">Sexe&nbsp;:</label> -->
+
+              <select name="sexe" class="form-control" required="" id="id_sexe">
+                <option value="" selected="">Sexe</option>
+
+                <option value="Féminin">Féminin</option>
+                <option value="Masculin">Masculin</option>
+
+              </select>
+            </div>
+
+          </div>
+
+
+
+          <a href="/" class="btn btn-danger text-start" type="disabled" role="button">Annuler</a>
+          <input class="btn btn-success" class="form-control text-end" type="submit" value="Enregistrer">
+
+          <!-- </form> -->
+
+
+        </form>
+    </div>
+  </div>
+
+
+</div>
+{% endblock %}

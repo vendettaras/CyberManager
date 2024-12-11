@@ -1,0 +1,68 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="row">
+    <div class="col-md-4">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th class="text-center">Date</th>
+                    <th class="text-center">Rendement</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for rendement_journalier in rendement_journaliers %}
+                <tr>
+                    <th class="text-center">{{ rendement_journalier.date_operation }}</th>
+                    <th class="text-center">{{ rendement_journalier.rend }}</th>
+                    {% endfor %}
+                </tr>
+            </tbody>
+        </table>
+        <div>
+            <a href="{% url 'index' %}">
+                <button type="submit" class="btn btn-danger">Retour</button>
+            </a>
+        </div>
+    </div>
+    <div class="col-md-1">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th class="text-center">Caisse</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for caisse_journalier in caisse_journaliers%}
+                <tr>
+                    <th class="text-center text-success">{{ caisse_journalier.caisse }}</th>
+                    {% endfor %}
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="col-md-1">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th class="text-center">Dette</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for dette_journalier in dette_journaliers%}
+                <tr>
+                    <th class="text-center text-danger">{{ dette_journalier.dette }}</th>
+                    {% endfor %}
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+
+</div>
+
+
+
+
+{% endblock %}

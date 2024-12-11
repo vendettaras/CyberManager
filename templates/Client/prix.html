@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+<table class="table">
+    <thead class="thead-light">
+      <tr>
+        <th scope="col">Activité</th>
+        <th scope="col">Prix unitaire</th>
+        <th scope="col">Date</th>
+
+      </tr>
+    </thead>
+
+    <tbody>
+
+        {% for variation in variations %}
+
+            <tr>
+                
+        
+                    <th>{{ variation.activite.activite }}</th>
+                    <td>{{ variation.tarif }} Ar </td>
+                    <td>{{ variation.date_changement }}</td>        
+            </tr> 
+
+        {% endfor %}
+    </tbody>
+</table>
+
+<a href="{% url 'index' %}">Retour</a>
+
+{% endblock %}

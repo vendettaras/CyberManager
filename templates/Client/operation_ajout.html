@@ -1,0 +1,108 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="container">
+
+    <h5 class="text-center">AJOUTER UNE OPERATION</h5>
+    <div class="container d-flex h-100">
+        <div class="row align-self-center justify-content-between">
+            <div class="col-md-4">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th class="text-center">Activités</th>
+                            <th class="text-center">Prix unitaire</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th class="text-center">Photocopie N/B</th>
+                            <th class="text-center">100 Ar</th>
+                        </tr>
+                        <tr>
+                            <th class="text-center">Photocopie Couleur</th>
+                            <th class="text-center">300 Ar</th>
+                        </tr>
+                        <tr>
+                            <th class="text-center">Impression N/B</th>
+                            <th class="text-center">100 Ar</th>
+                        </tr>
+                        <tr>
+                            <th class="text-center">Impression Couleur</th>
+                            <th class="text-center">300 Ar</th>
+                        </tr>
+                        <tr>
+                            <th class="text-center">Scan</th>
+                            <th class="text-center">500 Ar</th>
+                        </tr>
+                        <tr>
+                            <th class="text-center">Reliure</th>
+                            <th class="text-center">1500 Ar</th>
+                        </tr>
+                        <tr>
+                            <th class="text-center">Connexion</th>
+                            <th class="text-center">30 Ar</th>
+                        </tr>
+                        <tr>
+                            <th class="text-center">Film</th>
+                            <th class="text-center">400 Ar</th>
+                        </tr>
+                        <tr>
+                            <th class="text-center">Plastification</th>
+                            <th class="text-center">500 Ar</th>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="col-md-6">
+                <div>
+                    <h4>Les photocopies et impréssion en couleur sont à minimum 300 Ar selon la colorification du
+                        document
+                    </h4>
+                </div>
+                <div>
+                    <h4>Pour le Reliure : </h4>
+                    <ul>
+                        <li>
+                            <h4>0 à 30 Pages = 1500 Ar</h4>
+                        </li>
+                        <li>
+                            <h4>30 à 70 Pages = 2500 Ar</h4>
+                        </li>
+                        <li>
+                            <h4>70 à 150 Pages = 3500 Ar</h4>
+                        </li>
+                        <li>
+                            <h4>150 pages à plus = 4500 Ar</h4>
+                        </li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>Pour la Plastification : </h4>
+                    <ul>
+                        <li>
+                            <h4>A3 et moins = 800 Ar</h4>
+                        </li>
+                        <li>
+                            <h4>A3 à A4 = 1500 Ar</h4>
+                        </li>
+                        <li>
+                            <h4>A4 à A5 = 2500 Ar</h4>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <form action="" method="POST">
+        {% csrf_token %}
+        {{form}}
+    </form>
+    <input class="btn btn-success" type="submit" value="Enregistrer">
+    <a href="{% url 'index' %}" class="btn btn-danger" type="disabled" role="button">Annuler</a>
+    </form>
+</div>
+
+{% endblock %}

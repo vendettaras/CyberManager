@@ -1,0 +1,115 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="container">
+  <div class="col-lg-9 m-auto">
+    <div class="row mb-3">
+      <div class="col-md-4 text-start">
+        <h5><i class="fa fa-user"></i> <span>{{ client.nom }} {{ client.prenom }}</span></h5>
+      </div>
+      <div class="col-md-6 text-start">
+        <h5><i class="fa fa-phone mr-2"></i> <span>{{ client.telephone }}</span></h5>
+      </div>
+      <div class="col-md-6 text-start">
+        <h5><i class="fa fa-envelope mr-2"></i> <span>{{ client.email }}</span></h5>
+      </div>
+    </div>
+
+    <div class="row mb-3">
+      <div class="col-md-6 text-start">
+        <h5><i class="fa fa-credit-card mr-2"></i> <span>{{ client.num_CIN }}</span></h5>
+      </div>
+      <div class="col-md-6 text-start">
+        <h5><i class="fa fa-venus-mars mr-2"></i> <span>{{ client.sexe }}</span></h5>
+      </div>
+      <div class="col-md-6 text-start">
+        <h5><i class="fa fa-map-marker mr-2"></i> <span>{{ client.addresse }}</span></h5>
+      </div>
+      <div class="col-md-6 text-start">
+        <h5><i class="fa fa-suitcase mr-2"></i> <span>{{ client.profession }}</span></h5>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="row">
+    <a href="{% url 'operation_ajout' client.id %}">
+      <button class="btn btn-success btn-sm mt-5">Ajouter une opération</button>
+    </a>
+    <div class="col-md">
+      <div class="card card-body">
+        <table class=" table table-sm">
+          <thead>
+            <th scope="col" class="text-center">Activité</th>
+            <th scope="col" class="text-center">Quantité</th>
+            <th scope="col" class="text-center">Montant (Ar)</th>
+            <th scope="col" class="text-center">Date d'opérations</th>
+            <th scope="col" class="text-center">Status</th>
+          </thead>
+          <tbody>
+            {% for operation in operations %}
+
+
+            <tr>
+              <td class="text-center">{{ operation.activite.activite }}</td>
+              <td class="text-center">{{ operation.quantite }}</td>
+              <td class="text-center">{{ operation.Montant }}</td>
+              <td class="text-center">{{ operation.date_operation }}</td>
+              <td class="text-center">{{ operation.status }}</td>
+            </tr>
+            {% endfor %}
+            <tr>
+              <th class="text-center">TOTAL</th>
+              <td class="text-center"></td>
+              <th class="text-center text-success">{{ total }}</th>
+              <th class="text-center text-danger"></th>
+              <td class="text-center text-danger"></td>
+              <th></th>
+            </tr>
+            <tr>
+              <th class="text-center"></th>
+              <td class="text-center"></td>
+              <th class="text-center text-success"></th>
+              <th class="text-center text-danger"> DETTE </th>
+              <td class="text-center text-danger">{{ dettes }}</td>
+              <th></th>
+            </tr>
+
+          </tbody>
+        </table>
+        <a href="{% url 'abonnement_ajout' client.id %}">
+          <button class="btn btn-primary btn-sm">Ajouter un abonnement</button>
+        </a>
+        <table class=" table table-sm">
+          <thead>
+            <th scope="col" class="text-center">Date début</th>
+            <th scope="col" class="text-center">Date fin</th>
+            <th scope="col" class="text-center">Status</th>
+            <th scope="col" class="text-center">Dernière payement</th>
+          </thead>
+          <tbody>
+            {% for abonnement in abonnements %}
+
+
+            <tr>
+              <td class="text-center">{{ abonnement.debut }}</td>
+              <td class="text-center">{{ abonnement.fin }}</td>
+              <td class="text-center">{{ abonnement.status }}</td>
+              <td class="text-center">{{ abonnement.dateDePayement }}</td>
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+  <hr>
+  <a href="{% url 'index' %}">
+    <button class="btn btn-warning">Retour</button>
+  </a>
+  <a href="{% url 'effacer' client.id %}" class="btn btn-danger" type="disabled">Supprimer</a>
+</div>
+
+
+{% endblock %}

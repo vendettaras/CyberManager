@@ -1,0 +1,71 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+<div class="card card-body">
+  <table class="table table-striped table-sm">
+    <thead class="thead-dark">
+      <tr>
+        <th scope="col" class="text-center">Clients</th>
+        <th scope="col" class="text-center">Activité</th>
+        <th scope="col" class="text-center">Quantité</th>
+        <th scope="col" class="text-center">Montant</th>
+        <th scope="col" class="text-center">Date d'opérations</th>
+        <th scope="col" class="text-center">Status</th>
+
+      </tr>
+    </thead>
+
+    <tbody>
+
+      {% for operation in operations %}
+
+
+      <tr>
+        <th class="text-center">{{ operation.client.nom }}</th>
+        <td class="text-center">{{ operation.activite.activite }}</td>
+        <td class="text-center">{{ operation.quantite }}</td>
+        <td class="text-center">{{ operation.Montant }}</td>
+        <td class="text-center">{{ operation.date_operation }}</td>
+        <td class="text-center">{{ operation.status }}</td>
+      </tr>
+
+      {% endfor %}
+      <tr>
+        <th class="text-center"></th>
+        <td class="text-center"></td>
+        <th class="text-center text-success"></th>
+        <td class="text-center"></td>
+        <th class="text-center text-danger"></th>
+        <td class="text-center text-danger"></td>
+        <th></th>
+      </tr><br><br>
+      <tr>
+        <th class="text-center">TOTAL</th>
+        <td class="text-center"></td>
+        <td class="text-center"></td>
+        <th class="text-center">{{ total }}</th>
+        <td class="text-center"></td>
+        <td class="text-center"></td>
+        <th></th>
+      </tr>
+      <tr>
+        <th class="text-center"></th>
+        <th class="text-center"></th>
+        <th class="text-center">CAISSE =</th>
+        <th class="text-success text-center">{{ caisses }}</th>
+        <th class="text-center">DETTE =</th>
+        <th class="text-danger text-center">{{ dettes }}</th>
+        <th></th>
+      </tr>
+    </tbody>
+  </table>
+</div>
+</div>
+
+<a href="{% url 'index' %}">
+  <button type="submit" class="btn btn-danger">Retour</button>
+</a>
+
+{% endblock %}

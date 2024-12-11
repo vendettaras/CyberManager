@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<form action="" method="POST">
+    {% csrf_token %}
+    {{ formset.management_form }}
+        {% for form in formset %}
+        {{ form }}
+        <hr>
+    {% endfor %}
+
+
+    <input class="btn btn-success" type="submit" value="Enregistrer">
+    <a href="{% url 'index' %}" class="btn btn-danger" type="disabled" role="button">Annuler</a>
+
+</form>
+
+{% endblock %}
